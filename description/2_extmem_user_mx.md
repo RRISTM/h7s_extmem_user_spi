@@ -140,7 +140,8 @@ Memory is `Memory 1 `
 5. Go to Memory 1 tab
 6. Select the memory driver to `EXTMEM_USER`
 
-[extmem_manager](./img/V1-0008_exercise2_00006035.mp4)
+https://github.com/user-attachments/assets/7ba564cf-d68c-4dbf-8609-0f719c17e332
+
 
 This optim will create a blak interface for use where we can implement any memory we want to interface
 
@@ -162,7 +163,8 @@ All these parameters are taken from the memory datasheet.
 You can rename the `loader name` for easier recognition if necessary. 
 Additionally, the `programmming/erase time` can be further optimized according to the specifications in the memory datasheet."
 
-[extmem_loader](./img/V1-0009_exercise2_00006940.mp4) 
+https://github.com/user-attachments/assets/6eaeb76c-30c4-4012-971b-693a00b814ff
+
 
 <!-- ![extmem_loader config](./img/24_03_11_417.gif) -->
 
