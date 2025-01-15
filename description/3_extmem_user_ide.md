@@ -246,7 +246,7 @@ Read ID command and ID reception
    }
 ```
 
-Pu it to `EXTMEM_DRIVER_USER_Init` function in 
+Put it into `EXTMEM_DRIVER_USER_Init` function like this:
 
 ```c
 EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_Init(uint32_t MemoryId,
@@ -355,8 +355,8 @@ We can decrease the xspi clock
 
 Now we should have a correct value `0xc2`,`0x81`,`0x39`
 
-[!IMPORTANT]
-If you still not see corect values increase again prescaller. If this not help best is to check it with scope if you are sending/receiving really correct values.
+> [!IMPORTANT]
+> If you still not see corect values increase again prescaller. If this not help best is to check it with scope if you are sending/receiving really correct values.
 
 
 With this step we are sure that our memory is working and it is in default canfiguration. 
@@ -540,8 +540,8 @@ EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_Enable_MemoryMappedMode(EXTM
 }
 ```
 
-[!IMPORTANT]
-The Write is not really used so still a read command is send. It is because the HAL_XSPI_MemoryMapped reqeuire that both operation commands are defined
+> [!IMPORTANT]
+> The Write is not really used so still a read command is send. It is because the HAL_XSPI_MemoryMapped reqeuire that both operation commands are defined
 
 
 Now we can test the memory mapped mode the bootloader with memory_manager by default enable the memory mapped mode. 
@@ -933,8 +933,8 @@ We can test it by adding it to end of Init function(dont forget to reove it late
 
 You can now run debug. In inti it will masserase the memory and when memory mapped mode is enabled we can check the memory.
 
-![WARNING]
-If you are using H7S NUCLEO the masserase is queite long like 10s so the code will be in `driver_spi_WriteWait` very long time
+> ![WARNING]
+> If you are using H7S NUCLEO the masserase is queite long like 10s so the code will be in `driver_spi_WriteWait` very long time
 
 The erased memory will be full of `0xFF`
 
@@ -1078,8 +1078,8 @@ EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_EraseSector(EXTMEM_DRIVER_US
 }
 ```
 
-![IMPORTANT]
-Be careful about the memory erase address. Is possible it reqeuire block instead of address. 
+> ![IMPORTANT]
+> Be careful about the memory erase address. Is possible it reqeuire block instead of address. 
 
 To thest the the sector erase we will again use `EXTMEM_DRIVER_USER_Init`, hnow we comment the masserase and use sector erase instead
 
