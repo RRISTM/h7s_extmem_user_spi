@@ -195,3 +195,7 @@ On the STM32H7R/S, the XSPI (the interface for connecting with external serial m
 5. Generate Project
 
 ![project configuration](./img/24_03_11_423.gif)
+
+# CubeIDE parameters
+
+[Link](./3_extmem_user_ide.md)

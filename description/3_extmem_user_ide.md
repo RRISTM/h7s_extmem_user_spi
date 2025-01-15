@@ -14,7 +14,7 @@
 
 Into the infinite loop:
 
-```c-nc
+```c
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -63,7 +63,7 @@ uint8_t dev_id[3];
 
 Into the variable section:
 
-```c-nc
+```c
 /* Private variables ---------------------------------------------------------*/
 extern XSPI_HandleTypeDef hxspi1;
 
@@ -124,7 +124,7 @@ Define also all the commands for our memory and parameters for our memory
 
 Put it to private macro section
 
-```c-nc
+```c
 /* Private Macro ------------------------------------------------------------*/
 /** @defgroup USER_Private_Macro Private Macro
   * @{
@@ -248,7 +248,7 @@ Read ID command and ID reception
 
 Pu it to `EXTMEM_DRIVER_USER_Init` function in 
 
-```c-nc
+```c
 EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_Init(uint32_t MemoryId,
                                                          EXTMEM_DRIVER_USER_ObjectTypeDef* UserObject)
 {
@@ -381,7 +381,7 @@ Into EXTMEM_DRIVER_USER_Disable_MemoryMappedMode put
 
 it should looks like this:
 
-```c-nc
+```c
 EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_Disable_MemoryMappedMode(EXTMEM_DRIVER_USER_ObjectTypeDef* UserObject)
 {
   EXTMEM_DRIVER_USER_StatusTypeDef retr = EXTMEM_DRIVER_USER_NOTSUPPORTED;
@@ -474,7 +474,7 @@ And at the end we enable memory mapped mode:
 
 The `EXTMEM_DRIVER_USER_Enable_MemoryMappedMode` will then looks like:
 
-```c-nc
+```c
 EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_Enable_MemoryMappedMode(EXTMEM_DRIVER_USER_ObjectTypeDef* UserObject)
 {
   EXTMEM_DRIVER_USER_StatusTypeDef retr = EXTMEM_DRIVER_USER_NOTSUPPORTED;
@@ -571,7 +571,7 @@ And set  correct return value.
 It will look like this:
 
 
-```c-nc
+```c
 EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_GetMapAddress(EXTMEM_DRIVER_USER_ObjectTypeDef* UserObject, uint32_t* BaseAddress)
 {
   EXTMEM_DRIVER_USER_StatusTypeDef retr = EXTMEM_DRIVER_USER_NOTSUPPORTED;
@@ -635,7 +635,7 @@ Here we read the status into `u32StatusValue` and check if the `OSPI_SR_WEL` is 
 
 Complete function will looks like this:
 
-```c-nc
+```c
 uint32_t driver_spi_WriteEnabled(void){
   {
     XSPI_RegularCmdTypeDef cmd;
@@ -725,7 +725,7 @@ But we need to check if memory is really unclocked. So we will call `driver_spi_
 
 It will look like this:
 
-```c-nc
+```c
 uint32_t driver_spi_WriteEnable(void){
 	  {
 		   XSPI_RegularCmdTypeDef cmd;
@@ -773,7 +773,7 @@ The approach is completly the same as in `driver_spi_WriteEnabled` only we check
 
 It will looks like this:
 
-```c-nc
+```c
 uint32_t driver_spi_WriteWait(void){
   { 
     XSPI_RegularCmdTypeDef cmd;
@@ -872,7 +872,7 @@ And we set correct return state to `EXTMEM_DRIVER_USER_OK`
 
 It will looks like this:
 
-```c-nc
+```c
 // chip erase
 #define CMD_SPI_CE 0x60
 
@@ -952,7 +952,7 @@ Only difference will be the command and we need to transmit data.
 Also depends on size we can write pultiple pages. Between each write we need to unlock memory and after progamming check if programming is in progress.
 
 
-```c-nc
+```c
 // program
 #define CMD_SPI_PP4B 0x12
 #define MEMORY_MASK 0x0FFFFFFF
@@ -1018,7 +1018,7 @@ Again for testing we can put it into `EXTMEM_DRIVER_USER_Init` function just aft
 We will write a 256B from the flash memory. Basically we copy begining of our bootloader into external memory. 
 You can use different buffer if you want. 
 
-```c-nc
+```c
   EXTMEM_DRIVER_USER_MassErase(NULL);
   EXTMEM_DRIVER_USER_Write(NULL,0,(uint8_t*)0x08000000,256);
 
@@ -1035,7 +1035,7 @@ For sector erase we can again use the MassErase part and update it similart way 
 
 Again we need a while loop in case we need to erase multiple sectors. Before each erase we must unlock the memory and after programming check when the programming finishes. 
 
-```c-nc
+```c
 EXTMEM_DRIVER_USER_StatusTypeDef EXTMEM_DRIVER_USER_EraseSector(EXTMEM_DRIVER_USER_ObjectTypeDef* UserObject,
                                                                 uint32_t Address, uint32_t Size)
 {
@@ -1088,7 +1088,7 @@ To thest the the sector erase we will again use `EXTMEM_DRIVER_USER_Init`, hnow 
 ```
 
 
-```c-nc
+```c
   // EXTMEM_DRIVER_USER_MassErase(NULL);
   EXTMEM_DRIVER_USER_EraseSector(NULL,0,4096);
   EXTMEM_DRIVER_USER_Write(NULL,0,(uint8_t*)0x08000000,256);
