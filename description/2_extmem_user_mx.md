@@ -117,8 +117,6 @@ The `IO HSLV for XSPIM2` is chosen because Port 2 is utilized for XSPI1.
 
 # EXTMEM_MANAGER - External Memory manager
 
-!!!!
-
 It's a middleware that can automatically configure the external serial memory interface (xSPI), provided that the memory supports the SFDP standard (Serial Flash Discoverable Parameters defined by JEDEC), or is connected to SDMMC.
 Utilizing SFDP-compliant memory allows the STM32 MCU to automatically detect and set up memory parameters, which ensures compatibility and simplifies integration process.
 
@@ -196,6 +194,6 @@ On the STM32H7R/S, the XSPI (the interface for connecting with external serial m
 
 ![project configuration](./img/24_03_11_423.gif)
 
-# CubeIDE parameters
+# CubeIDE
 
 [Link](./3_extmem_user_ide.md)
